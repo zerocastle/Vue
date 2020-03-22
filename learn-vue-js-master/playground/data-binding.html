@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+
+        기존에 jquery 같은경우에서 기존 dom tree에서 일일이 찾아가 데이터를 바인딩할수 있지만 
+        vue 즉 리엑티브 라이브러리를 사용함으로써 dom 트리에 관한 정보 를 모두 컨트롤 가능하다.
+
+    -->
+</head>
+<body>
+
+    <div id="app">
+        {{num}}
+        {{doubleNum}}
+
+        <p v-bind:id="uuid" v-bind:class="name">
+            {{doubleNum}}
+        </p>
+
+        <div>
+            Loading...
+        </div>
+
+        <div>
+            test user has benn logged in
+        </div>
+
+        <!--TODO : 인풋 박스를 만들고 입력된 값을 p 태그에 출력해보세요 -->
+        <input type="text" v-model="message">
+
+        <p>message : {{message}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el : '#app',
+            data : {
+                num : 10,
+                uuid : "kys",
+                name : 'text-blue',
+                loading : true,
+                message : ''
+            },
+            // 연산되는  object 
+            computed : {
+              doubleNum : function(){
+                  return this.num * 2;
+              }
+            }
+        })
+    </script>
+    
+</body>
+</html>

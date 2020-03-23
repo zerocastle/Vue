@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <button v-on:click="increase">increase</button>
+        {{data}}
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                increase: function () {
+                    this.data = this.data + 1;
+                },
+                logText : function(){
+                    console.log("increased");
+                    
+                }   
+            },
+            data : {
+                data : 10
+            },
+            watch : {
+                data : function(){
+                    this.logText();
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

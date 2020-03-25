@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+        .warning{
+            color: red;
+        }
+
+    </style>
+
+    <div id="app">
+        <!-- <p v-bind:class="{warning : isError}">색깔 바껴라 얍</p> -->
+        <p v-bind:class="chageColor">색깔 변해라</p>
+        <!-- <p><button v-on:click="change">변해라 얍</button></p> -->
+    </div>
+
+    <script>
+
+        new Vue({
+            el : '#app',
+            data : {
+                isError : false
+            },
+            methods : {
+                change : function(){
+                    this.counter = this.counter + 1;
+                    if(this.counter % 2 == 1){
+                        this.isError = false;
+                    }else{
+                        this.isError = true;
+                    }
+                }
+            },
+            computed :{
+                chageColor : function(){
+                    var returnValue;
+                    returnValue = this.isError ? 'warning' : null;
+                    return returnValue;
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
